@@ -15,7 +15,7 @@ func main(){}
 
 Programs in this book are followed by a link to the [Go
 Playground](http://play.golang.org), so you can run them without installing Go
-on your computer. However, program output will also be included in the text.
+on your computer. Program output will also be included in the text.
 
 Every Go program contains a package called `main`, introduced by the keyword
 `package`, and a function called `main`, introduced by the keyword `func`.
@@ -47,7 +47,7 @@ package main
 we find that the compiler enforces the rule that there must be a `main.main`
 function:
 
-```none
+```bash
 runtime.main: undefined: main.main
  [process exited with non-zero status]
 ```
@@ -63,36 +63,33 @@ func main(){}
 
 also gives an error:
 
-```text
-shorter2.go:1:1: expected 'package', found 'func'
+```bash
+prog.go:1: package statement must be first
+ [process exited with non-zero status]
 ```
 
-This error message helpfully, if cryptically, tells us exactly where the 
-error occurred. It was on line 1 in column number 1. That’s what the
-`:1:1` in the error message is telling us.
+The `:1` in the error message tells us the error occurred on line 1.
 
 ### Multi-line Comments
 
-To be sure that we understand that `:1:1`, we’ll add a comment before the
-function:
+It is possible to have something before `package`, though, and that is a
+comment. Here is an example: function:
 
 ```go
-/* "f" is in column 27 */ func main(){}
+/* This is a useless program
+   that does not even compile */
+func main(){}
 ```
+[Run](http://play.golang.org/p/vXroUNbrD8)
 
 This form of comment begins with `/*` and continues, possibly spanning
-additional lines, until `*/`. Now the error message points to column 27 as
+additional lines, until `*/`. Now the error message points to line 3 as
 the location of the problem:
 
-```text
-shorter3.go:1:27: expected 'package', found 'func'
+```bash
+prog.go:3: package statement must be first
+ [process exited with non-zero status]
 ```
-
-Column 27 is significant: it is the location of the `f` in `func`. This 
-shows that the compiler skipped over the comment; a comment at the beginning 
-isn’t a problem. But the first thing that isn’t a comment or white space must 
-be the package clause. If the compiler finds anything else, it complains 
-that it wants to see `package`.
 
 ### Single-line Comments
 
@@ -103,16 +100,13 @@ hide our function from the compiler:
 ```go
 // func main(){}
 ```
+[Run](http://play.golang.org/p/Bwdn2l9mAc)
 
 Because of the two slashes, this whole line is a comment; the compiler treats 
 it like a blank line. The resulting error continues to nag us for a package 
 clause:
 
-```text
-shorter4.go:1:18: expected 'package', found 'EOF'
+```bash
+prog.go:2: package statement must be first
+ [process exited with non-zero status]
 ```
-
-`EOF` means “end of file”. There are 17 characters in our file (14 printing
-characters, two spaces, and a newline at the end), so the end of file comes
-at position 18. That is when the compiler realizes it is never going to see 
-`package`.

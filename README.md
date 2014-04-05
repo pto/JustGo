@@ -10,4 +10,4 @@ itself, with only passing mentions of the standard library. The emphasis is
 on the places where Go takes the road less traveled.
 
 This book is generated using [GitBook](http://www.gitbook.io). Feel free to
-contribute or signal issues on [GitHub](http://www.github.com/pto/Just-Go).
+contribute or signal issues on [GitHub](http://www.github.com/pto/JustGo).
