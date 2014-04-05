@@ -1,4 +1,4 @@
 # Summary
 
-* [A Minimal Go Program](minimal/README.md)
-	* [Shortest](minimal/shortest.md)
+* [Basics](basics/README.md)
+	* [The Shortest Go Program](basics/shortest.md)
