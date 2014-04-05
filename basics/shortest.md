@@ -25,16 +25,14 @@ We can refer to this function by “qualifying” the function name with the
 package name: `main.main`. If the `main` package also had a function called
 `doSomething`, that function’s qualified name would be `main.doSomething`.
  
-If you do have Go installed, you can run this program, not that it will do you
-much good, by placing the text above in a file called `shortest.go` and then
-using the command
+Running this program has an unsurprising result. In the Go Playground you see
 
-```bash
-go run shortest.go
+```
+[no output]
 ```
 
-The result, not surprisingly, is nothing. This counts as a modest success.  The
-program doesn’t do anything, but at least there were no errors.
+This counts as a modest success.  The program doesn’t do anything, but at least
+there were no errors.
 
 ### But No Shorter
 
@@ -47,16 +45,11 @@ package main
 [Run](http://play.golang.org/p/q0_itBEfzN)
 
 we find that the compiler enforces the rule that there must be a `main.main`
-function. Call this program `shorter.go` and run it with
+function:
 
-```bash
-go run shorter.go
-```
-
-We get this error message:
-
-```text
+```none
 runtime.main: undefined: main.main
+ [process exited with non-zero status]
 ```
 
 ### Every Program in its Package
