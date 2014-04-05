@@ -1,5 +1,9 @@
 # The Shortest Go Program
 
+> The programmes will neither be very interesting nor very good.
+
+<p style="text-align:right">– John Reith, Director General, BBC</p>
+
 Here is the shortest possible Go program:
 
 ```go
